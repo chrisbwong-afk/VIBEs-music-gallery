@@ -18,6 +18,7 @@ The player has a display thumbnail, skip and rewind controls, and progress displ
 <li>"D" for loop </li> 
 <li>"A" for auto</li>
 <li>"0-9" to skip to the corresponding percentage of the song</li>
+<li>"Z" and "X" to adjust the volume</li>
 </ul>
 
 ### Song Bank

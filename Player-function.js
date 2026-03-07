@@ -274,6 +274,8 @@ window.addEventListener('DOMContentLoaded', () => {
   Skiphotkey();
   Rewindhotkey();
   ReturnToTopHotkey();
+  IncreaseVolumeHotkey();
+  DecreaseVolumeHotkey();
 });
 
 document.addEventListener('keydown', (e) => {
@@ -297,6 +299,36 @@ function ReturnToTopHotkey() {
     if (e.code === 'w' || e.code === 'KeyW') {
       e.preventDefault();
       ReturnToTop();
+    }
+  });
+}
+
+function IncreaseVolume(){
+  if (currentAudio) {
+    currentAudio.volume = Math.min(currentAudio.volume + 0.1, 1);
+  }
+}
+
+function IncreaseVolumeHotkey() {
+  document.addEventListener('keydown', (e) => {
+    if (e.code === 'x' || e.code === 'KeyX') {
+      e.preventDefault();
+      IncreaseVolume();
+    }
+  });
+}
+
+function DecreaseVolume() {
+  if (currentAudio) {
+    currentAudio.volume = Math.max(currentAudio.volume - 0.1, 0);
+  }
+}
+
+function DecreaseVolumeHotkey() {
+  document.addEventListener('keydown', (e) => {
+    if (e.code === 'z' || e.code === 'KeyZ') {
+      e.preventDefault();
+      DecreaseVolume();
     }
   });
 }
