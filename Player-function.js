@@ -149,7 +149,7 @@ function LoopAudio() {
     audio.loop = isLooping
   );
 
-  document.querySelector('#loopButton').textContent = isLooping ? 'Loop On (L)' : 'Loop Off (L)';
+  document.querySelector('#loopButton').textContent = isLooping ? 'Loop On (D)' : 'Loop Off (D)';
 }
 
 function ToggleAutoPlay() {
@@ -232,7 +232,7 @@ function Shufflehotkey() {
 
 function Loophotkey() {
   document.addEventListener('keydown', (e) => {
-    if (e.code === 'l' || e.code === 'KeyL') {
+    if (e.code === 'd' || e.code === 'KeyD') {
       e.preventDefault();
       LoopAudio();
     }
@@ -250,7 +250,7 @@ function Autohotkey() {
 
 function Skiphotkey() {
   document.addEventListener('keydown', (e) => {
-    if (e.code === 'ArrowRight' || e.code === 'KeyArrowRight') {
+    if (e.code === 'q' || e.code === 'KeyQ') {
       e.preventDefault();
       Skip10Seconds();
     }
@@ -259,7 +259,7 @@ function Skiphotkey() {
 
 function Rewindhotkey() {
   document.addEventListener('keydown', (e) => {
-    if (e.code === 'ArrowLeft' || e.code === 'KeyArrowLeft') {
+    if (e.code === 'e' || e.code === 'KeyE') {
       e.preventDefault();
       Rewind10Seconds();
     }
@@ -273,6 +273,7 @@ window.addEventListener('DOMContentLoaded', () => {
   Autohotkey();
   Skiphotkey();
   Rewindhotkey();
+  ReturnToTopHotkey();
 });
 
 document.addEventListener('keydown', (e) => {
@@ -286,3 +287,16 @@ document.addEventListener('keydown', (e) => {
     }
   }
 });
+
+function ReturnToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function ReturnToTopHotkey() {
+  document.addEventListener('keydown', (e) => {
+    if (e.code === 'w' || e.code === 'KeyW') {
+      e.preventDefault();
+      ReturnToTop();
+    }
+  });
+}
