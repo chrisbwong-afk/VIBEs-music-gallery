@@ -169,4 +169,8 @@ Default{
         width: 100%;
         margin: 10px 0;
     }
+    img {
+        width: 200px;
+        height: 200px;
+    }
 }
