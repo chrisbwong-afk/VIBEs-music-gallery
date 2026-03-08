@@ -1,7 +1,7 @@
 let currentAudio = null;
 let currentThumb = null;
 let isLooping = false;
-let isAutoPlay = false;
+let isAutoPlay = false;zz
 
 
 // Picking from the song bank
