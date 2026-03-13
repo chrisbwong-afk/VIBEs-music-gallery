@@ -4,25 +4,63 @@
         <title>Music Gallery</title>
         <link href="Styling.css" rel="stylesheet" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/lucide@latest"></script>
     </head>
 
+
     <body>
+        <button id="helpButton" onclick="ToggleHelp()">?</button>
+
+        <div id="help">
+            <h2>Help</h2>
+            <ul>
+                <li>Q - Rewind 10s</li>
+                <li>W - Return to top</li>
+                <li>E - Skip 10s</li>
+                <li>S - Shuffle</li>
+                <li>D - Loop</li>
+                <li>A - Auto-Play</li>
+                <li>Z - Volume Down</li>
+                <li>X - Volume Up</li>
+                <li>Space - Play / Pause</li>
+                <li>/ - Toggle Help</li>
+            </ul>
+
+        </div>
 
         <div>
             <h1>Vibes</h1>
             
             <div>
                 <div class="jukebox">
-                    <button onclick="PickRandomAudio()">Shuffle (S)</button>
-                    <button id="loopButton" onclick="LoopAudio()">Loop (D)</button>
-                    <button id="autoplayButton" onclick="ToggleAutoPlay()">Auto-Play (A)</button>
+
+                    <button onclick="PickRandomAudio()">
+                        <i data-lucide="shuffle" id="off"></i>
+                    </button>
+
+                    <button id="loopButton" onclick="LoopAudio()">
+                        <i data-lucide="repeat" id="off"></i>
+                    </button>
+
+                    <button id="autoplayButton" onclick="ToggleAutoPlay()">
+                        <i data-lucide="step-forward" id="off"></i>
+                    </button>
+
                 </div>
             </div>
 
             <div id="shuffleDisplay">
-                <button onclick="Rewind10Seconds()"><</button>
+
+                <button onclick="Rewind10Seconds()">
+                    <i data-lucide="rewind"></i>
+                </button>
+
                 <img id="shuffleThumb" src="Thumbnail/Robin.jpg" onclick="TogglePlayPauseShuffle()">
-                <button onclick="Skip10Seconds()">></button>
+               
+                <button onclick="Skip10Seconds()">
+                    <i data-lucide="fast-forward"></i>
+                </button>
+
                 <progress id="volumeLevel" value="100" max="100"></progress>
             </div>
             
@@ -54,8 +92,6 @@
                     </audio>
                 </div>
 
-            
-
                 <div class="box">
                     <img src="Thumbnail/free.jpg" onclick="toggleAudio('free')">
                     <audio id="free" preload="none" >
@@ -76,9 +112,6 @@
                         <source src="Audio/99 50.mp3" type="audio/mpeg">
                     </audio>
                 </div>
-
-                
-
             
                 <div class="box">
                     <img src="Thumbnail/shaq.jpg" onclick="toggleAudio('shaq')">
@@ -408,7 +441,12 @@
 
 
         </div>
+        
         <script src="Player-function.js"></script>
+
+        <script>
+            lucide.createIcons();
+        </script>
 
     </body>
 
