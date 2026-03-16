@@ -62,8 +62,8 @@ function PickRandomAudio() {
     currentAudio.currentTime = 0;
   }
   if (currentThumb) {
-    currentThumb.style.transform = 'scale(1)';
-    currentThumb.style.opacity = '1';
+    currentThumb.style.transform = '';
+    currentThumb.style.opacity = '';
   }
   
 
