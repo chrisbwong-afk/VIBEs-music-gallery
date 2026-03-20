@@ -4,6 +4,9 @@ html {
 
 html, body {
     background-color:#426386;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 div {
@@ -17,7 +20,13 @@ h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: italic;
     text-align: center;
-    font-size: 64px;
+    font-size: 90px;
+    position: relative;
+    width: fit-content;
+    justify-self: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    z-index: 300;
 }
 
 h2 {
@@ -60,8 +69,13 @@ img {
 #shuffleThumb {
     display: flex;
     justify-content: center;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.3s ease;
     background-color : transparent;
+    z-index: 3;
+}
+
+#shuffleThumb:hover {
+    transform: translateY(-5px);
 }
 
 .fade-out {
@@ -91,6 +105,7 @@ img {
     transition: transform 0.3s ease, background-color 0.3s ease;
     border-radius: 20px;
     border: none;
+    z-index: 3;
 }
 
 .jukebox button:hover {
@@ -151,6 +166,7 @@ img {
     transition: transform 0.3s ease, background-color 0.3s ease;
     border-radius: 15px;
     border: none;
+    z-index: 3;
 }
 
 #shuffleDisplay button:hover {
@@ -199,6 +215,7 @@ img {
     border-radius: 12px;
     background-color: #526280;
     overflow: hidden;
+    z-index: 3;
 }
 
 #volumeLevel::-webkit-progress-bar {
@@ -229,6 +246,7 @@ img {
     transition: background-color 0.3s ease;
     border-radius: 15px;
     border: none;
+    z-index: 3;
 }
 
 #helpButton:hover {
@@ -266,14 +284,91 @@ img {
 
 
 [data-lucide]#off {
-  stroke: #696a71;
+  stroke: #FFFFFF;
   width: 32px;
   height: 32px;
   cursor: pointer;
 
 }
 
+.switch {
+  position: fixed;
+  top: 2.5%;
+  right: 1.5%;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  z-index: 3;
+}
 
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #526280;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.knob {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 26px;
+  height: 26px;
+  transition: transform 0.4s ease;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #94b7ddc3;
+  border-radius: 50%;
+}
+
+span.knob [data-lucide] {
+  width: 24px;
+  height: 24px;
+  stroke: #ffffff;
+  transition: stroke 0.3s ease;
+}
+
+span.knob [data-lucide='moon'] {
+    stroke: #061a29;
+}
+
+input:checked + .slider{
+    background-color: #061a29;
+}
+
+input:checked + .slider .knob {
+  transform: translateX(26px);
+}
+
+div.light {
+    position: fixed;
+    inset: -20px;
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 0px;
+}
+
+div.dark {
+    position: fixed;
+    inset: -20px;
+    opacity: 0.8;
+    background-color: #000000;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 0px;
+}
 
 @media (max-width: 768px) {
 

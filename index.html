@@ -9,6 +9,16 @@
 
 
     <body>
+        <div id="theme" class="light">
+        </div>
+        <label class="switch">
+            <input type="checkbox" id="darkModeToggle" onchange="ToggleDarkMode()">
+            <span class="slider round">
+                <span class="knob">
+                    <span id="Icon" data-lucide="sun-dim"></span>
+                </span>
+            </span>
+        </label>
         <button id="helpButton" onclick="ToggleHelp()">?</button>
 
         <div id="help">
@@ -472,12 +482,48 @@
                     </audio>
                 </div>
 
+                <div class="box">
+                    <img src="Thumbnail/Hero.jpg" onclick="toggleAudio('Hero')">
+                    <audio id="Hero" preload="none" >
+                        <source src="Audio/75 Hero.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+
+                <div class="box">
+                    <img src="Thumbnail/Cruise.jpg" onclick="toggleAudio('Cruise')">
+                    <audio id="Cruise" preload="none" >
+                        <source src="Audio/98 Cruise.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+
+                <div class="box">
+                    <img src="Thumbnail/Side character.jpg" onclick="toggleAudio('Side character')">
+                    <audio id="Side character" preload="none" >
+                        <source src="Audio/107 Side character.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+
+                <div class="box">
+                    <img src="Thumbnail/Golden age.jpg" onclick="toggleAudio('Golden age')">
+                    <audio id="Golden age" preload="none" >
+                        <source src="Audio/150 Golden age.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+
+                <div class="box">
+                    <img src="Thumbnail/Pina Colada.jpg" onclick="toggleAudio('Pina Colada')">
+                    <audio id="Pina Colada" preload="none" >
+                        <source src="Audio/155 Pina Colada.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+
             </div>
 
 
         </div>
         
         <script src="Player-function.js"></script>
+        <script src="title-mouse-behavior.js"></script>
 
         <script>
             lucide.createIcons();

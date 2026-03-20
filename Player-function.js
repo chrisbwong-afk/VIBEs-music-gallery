@@ -3,6 +3,9 @@ let currentThumb = null;
 let isLooping = false;
 let isAutoPlay = false;
 
+let recentSongs = [];
+const MAX_HISTORY = 5;
+
 const keysDown = {};
 
 // Picking from the song bank
@@ -52,8 +55,15 @@ function toggleAudio(id) {
 // Shuffle function
 function PickRandomAudio() {
   const audios = Array.from(document.querySelectorAll('audio'));
-  const randomIndex = Math.floor(Math.random() * audios.length);
-  const audio = audios[randomIndex];
+
+  let availableAudios = audios.filter(audio => !recentSongs.includes(audio));
+
+  if (availableAudios.length === 0) {
+    recentSongs = [];
+    availableAudios = audios;
+  }
+  const randomIndex = Math.floor(Math.random() * availableAudios.length);
+  const audio = availableAudios[randomIndex];
   const thumb = audio.parentElement;
 
   // Stop previous audio and reset its thumbnail
@@ -73,7 +83,11 @@ function PickRandomAudio() {
   thumb.style.transform = 'scale(1.15)';
   thumb.style.opacity = '0.8';
   
-
+  recentSongs.push(audio);
+  if (recentSongs.length > MAX_HISTORY) {
+    recentSongs.shift();
+  }
+  
   const display = document.getElementById('shuffleThumb');
   display.classList.add('fade-out');
 
@@ -294,6 +308,28 @@ window.addEventListener('DOMContentLoaded', () => {
   KeyControls();
   ToggleHelp();
 });
+
+function ToggleDarkMode() {
+  const div = document.getElementById('theme');
+  div.classList.toggle('dark');
+  div.classList.toggle('light');
+
+  const icon = document.getElementById('Icon');
+  icon.classList.add('fade-out');
+  setTimeout(() => {
+
+    icon.setAttribute('data-lucide', div.classList.contains('dark') ? 'moon' : 'sun-dim');
+
+    icon.classList.remove('fade-out');
+
+    lucide.createIcons();
+  }, 150);
+
+  const title = document.querySelector('h1');
+
+  title.style.color = div.classList.contains('dark') ? '#8ea2d2' : '#000000';
+
+}
 
 setInterval(UpdateVolume, 100);
 
