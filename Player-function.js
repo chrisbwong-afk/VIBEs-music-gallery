@@ -4,7 +4,7 @@ let isLooping = false;
 let isAutoPlay = false;
 
 let recentSongs = [];
-const MAX_HISTORY = 5;
+const MAX_HISTORY = 10;
 
 const keysDown = {};
 
@@ -12,6 +12,7 @@ const keysDown = {};
 function toggleAudio(id) {
   const audio = document.getElementById(id);
   const thumb = audio.parentElement;
+
 
   // Stop previous audio and reset its thumbnail
   if (currentAudio && currentAudio !== audio) {
@@ -31,6 +32,7 @@ function toggleAudio(id) {
     thumb.style.transform = 'scale(1.15)';
     thumb.style.opacity = '0.8';
 
+
   } else {
     audio.pause();
     audio.currentTime = 0;
@@ -49,6 +51,12 @@ function toggleAudio(id) {
   } else {
     audio.onended = null;
   } 
+  const songName = currentAudio.id;
+  title.classList.add('fade-out');
+  setTimeout(() => {
+    title.textContent = songName;
+    title.classList.remove('fade-out');
+  }, 250);
 
 }
 
@@ -82,6 +90,9 @@ function PickRandomAudio() {
   currentThumb = thumb;
   thumb.style.transform = 'scale(1.15)';
   thumb.style.opacity = '0.8';
+
+  console.log('currentAudio:', currentAudio);
+
   
   recentSongs.push(audio);
   if (recentSongs.length > MAX_HISTORY) {
@@ -89,11 +100,18 @@ function PickRandomAudio() {
   }
   
   const display = document.getElementById('shuffleThumb');
+  const title = document.getElementById('title');
+  const songName = currentAudio.id;
+
+  title.classList.add('fade-out');
   display.classList.add('fade-out');
 
   setTimeout(() => {
     display.src = thumb.src;
+    title.textContent = songName;
+
     display.classList.remove('fade-out');
+    title.classList.remove('fade-out');
   }, 250);
   
   UpdateShuffleThumbnail();
@@ -104,8 +122,7 @@ function PickRandomAudio() {
     };
   } else {
     audio.onended = null;
-  } 
-  
+  }   
 }
 
 function UpdateShuffleThumbnail() {
@@ -204,6 +221,26 @@ function TogglePlayPauseShuffle() {
     currentAudio.pause();
   }
 }
+
+function downloadCurrentAudio(e) {
+  console.log('currentAudio:', currentAudio);
+  console.log('function called');
+
+  if (!currentAudio) return;
+
+  const source = currentAudio.querySelector('source');
+
+  console.log('source:', source);
+  console.log('source src:', source ? source.src : 'No source element found');
+  const link = document.createElement('a');
+  link.setAttribute('href', source ? source.src : '');
+  link.setAttribute('download', decodeURIComponent(source ? source.src.split('/').pop() : 'audio.mp3'));
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
 
 function UpdateProgress() {
   if (!currentAudio) return;

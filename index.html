@@ -34,12 +34,13 @@
                 <li>X - Volume Up</li>
                 <li>Space - Play / Pause</li>
                 <li>/ - Toggle Help</li>
+                <li>1-9 - Jump to 10%-90% of the current track</li>
             </ul>
 
         </div>
 
         <div>
-            <h1>Vibes</h1>
+            <h1 id="title">Vibes</h1>
             
             <div>
                 <div class="jukebox">
@@ -56,6 +57,11 @@
                         <i data-lucide="step-forward" id="off"></i>
                     </button>
 
+                    <button type="button" id="downloadbutton" onclick="downloadCurrentAudio()">
+                        <i data-lucide="download"></i>
+                    </button>
+
+
                 </div>
             </div>
 
@@ -65,13 +71,15 @@
                     <i data-lucide="rewind"></i>
                 </button>
 
-                <img id="shuffleThumb" src="Thumbnail/Robin.jpg" onclick="TogglePlayPauseShuffle()">
+                <div id="mainmiddle">
+                    <img id="shuffleThumb" src="Thumbnail/Robin.jpg" onclick="TogglePlayPauseShuffle()">
+                    <progress id="volumeLevel" value="100" max="100"></progress>
+                </div>
                
                 <button onclick="Skip10Seconds()">
                     <i data-lucide="fast-forward"></i>
                 </button>
 
-                <progress id="volumeLevel" value="100" max="100"></progress>
             </div>
             
             <progress id="audioProgress" value="0" max="100"></progress>
@@ -510,6 +518,13 @@
                     </audio>
                 </div>
 
+                <div class="box">
+                    <img src="Thumbnail/Pina Colada.jpg" onclick="toggleAudio('Pina Colada')">
+                    <audio id="Pina Colada" preload="none" >
+                        <source src="Audio/155 Pina Colada.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+                
                 <div class="box">
                     <img src="Thumbnail/Pina Colada.jpg" onclick="toggleAudio('Pina Colada')">
                     <audio id="Pina Colada" preload="none" >

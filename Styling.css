@@ -26,7 +26,8 @@ h1 {
     justify-self: center;
     padding-left: 50px;
     padding-right: 50px;
-    z-index: 300;
+    z-index: 3;
+    transition: opacity 0.25s ease;
 }
 
 h2 {
@@ -188,6 +189,13 @@ img {
     outline: #294a6d solid 2px;
 }
 
+#mainmiddle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+}
+
 #audioProgress {
     width: 100%;
     height: 20px;
@@ -206,13 +214,11 @@ img {
 }
 
 #volumeLevel {
-    position: absolute;
-    transform: rotate(-90deg);
-    transform-origin: center;
-    width: 360px;
-    height: 15px;
-    right: 535px;
-    border-radius: 12px;
+    writing-mode: vertical-rl;
+    direction: rtl;
+    width: 20px;
+    height: 360px;
+    border-radius: 10px;
     background-color: #526280;
     overflow: hidden;
     z-index: 3;
@@ -224,12 +230,13 @@ img {
 
 #volumeLevel::-webkit-progress-value {
     background-color: #0d3a6d;
-    transition: width 0.25s ease;
+    transition: width 0.25s ease, height 0.25s ease;
+
 }
 
 #volumeLevel::-moz-progress-bar {
     background-color: #0d3a6d;
-    transition: height 0.25s ease;
+    transition: height 0.25s ease, width 0.25s ease;
 }
 
 #helpButton {
