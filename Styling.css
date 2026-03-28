@@ -52,7 +52,7 @@ p#miniTitle {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 30%;
+    width: 200%;
     cursor:pointer;
     transition: opacity 0.25s ease, width 0.25s ease, color 0.25s ease;
 }
