@@ -3,6 +3,8 @@ let currentThumb = null;
 let isLooping = false;
 let isAutoPlay = false;
 
+let globalVolume = 1;
+
 let recentSongs = [];
 const MAX_HISTORY = 10;
 
@@ -36,6 +38,8 @@ function toggleAudio(id) {
     currentThumb = thumb;
     thumb.style.transform = 'scale(1.15)';
     thumb.style.opacity = '0.8';
+
+    audio.volume = globalVolume;
 
 
   } else {
@@ -97,6 +101,8 @@ function PickRandomAudio() {
   currentThumb = thumb;
   thumb.style.transform = 'scale(1.15)';
   thumb.style.opacity = '0.8';
+
+  audio.volume = globalVolume;
 
   console.log('currentAudio:', currentAudio);
 
@@ -345,13 +351,15 @@ function ReturnToTop() {
 
 function IncreaseVolume(){
   if (currentAudio) {
-    currentAudio.volume = Math.min(currentAudio.volume + 0.1, 1);
+    globalVolume = Math.min(globalVolume + 0.1, 1);
+    currentAudio.volume = globalVolume;
   }
 }
 
 function DecreaseVolume() {
   if (currentAudio) {
-    currentAudio.volume = Math.max(currentAudio.volume - 0.1, 0);
+    globalVolume = Math.max(globalVolume - 0.1, 0);
+    currentAudio.volume = globalVolume;
   }
 }
 
