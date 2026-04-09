@@ -84,6 +84,8 @@ img {
 #shuffleThumb {
     display: flex;
     justify-content: center;
+    width: 360px;
+    height: 360px;
     transition: opacity 0.25s ease, transform 0.3s ease;
     background-color : transparent;
     z-index: 3;
@@ -466,7 +468,7 @@ div.dark {
     }
 
     img {
-        max-width: 320px;
+        max-width: 360px;
         margin: 10px;
     }
 
