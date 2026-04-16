@@ -2,13 +2,6 @@ name: upload song to gallery
 
 on:
   push:
-    paths:
-      - 'Audio/**'
-      - 'Thumbnail/**'
-      - 'Gallery-builder.js'
-      - 'Player-function.js'
-      - 'Song-list-update-script.js'
-      - 'index.html'
 
 jobs:
   build:
