@@ -26,6 +26,8 @@ The player has a display thumbnail, skip and rewind controls, and progress displ
 
 Below the player is a library of every song that is in the repo, and the thumbnails have cursor reactive behaviour. The active song itself becomes visually larger than other thumbnails, and has a slight opacity change.
 
+The bank itself is built from a self updating json file. When a new song and thumbnail are pushed to Github, its data is automatically entered into the json and the bank reflects this entry.
+
 ### Shuffle
 
 The shuffle button picks a random song from the bank and plays it. 
