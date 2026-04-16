@@ -25,3 +25,6 @@ const songs = files
 fs.writeFileSync(outputFile, JSON.stringify(songs, null, 2))
 
 console.log("Song-list.json generated!")
+console.log("AUDIO DIR:", audioDir)
+console.log("FILES:", files)
+console.log("FILTERED:", files.filter(f => f.endsWith('.mp3')))
