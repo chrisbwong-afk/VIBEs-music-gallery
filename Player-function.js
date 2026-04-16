@@ -6,7 +6,7 @@ let isAutoPlay = false;
 let globalVolume = 1;
 
 let recentSongs = [];
-const MAX_HISTORY = 10;
+const MAX_HISTORY = 20;
 
 const keysDown = {};
 
