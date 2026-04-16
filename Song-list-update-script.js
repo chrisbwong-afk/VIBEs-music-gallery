@@ -1,8 +1,8 @@
 const fs = require('fs')
 const path = require('path')
 
-const audioDir = path.join(__dirname, '../Audio')
-const outputFile = path.join(__dirname, '../Song-list.json')
+const audioDir = path.join(__dirname, 'Audio')
+const outputFile = path.join(__dirname, 'Song-list.json')
 
 const files = fs.readdirSync(audioDir)
 
