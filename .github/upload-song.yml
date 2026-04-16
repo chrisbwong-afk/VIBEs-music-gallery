@@ -1,0 +1,34 @@
+name: upload song to gallery
+
+on:
+  push:
+    paths:
+      - 'Audio/**'
+      - 'Thumbnail/**'
+      - 'Gallery-builder.js'
+      - 'Player-function.js'
+      - 'index.html'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses:actions/checkout@v4
+
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Run generator script
+      run: node Gallery-builder.js
+
+    - name: Commit updated Song-list.json
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git add Song-list.json
+        git diff --cached --quiet || git commit -m 'Update Song-list.json'
+        git push
