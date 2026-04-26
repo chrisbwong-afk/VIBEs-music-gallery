@@ -1,37 +1,117 @@
-# Personal Music Gallery & Player 
+# VIBEs – Visual Interactive Beat Experiences
 
-This page was something I wanted to do to store my projects in a place that wasn't Soundtrap. I DO NOT own the tracks or vocals in these songs, I only took some songs I liked and reimagined them. I aimed to have fun in doing this and that was accomplished. 
+A responsive music gallery web application that allows users to browse, play, and interact with a curated collection of audio tracks through a custom-built audio player and dynamic UI system.
 
-## Thumbnails
-Same thing, I do not own any of the images or thumbnails, they only help identify the sum of the parts.
+---
+
+## Overview
+
+VIBEs is a browser-based music player and gallery that combines audio playback with interactive controls, keyboard shortcuts, and visual feedback. It was designed as a lightweight alternative to traditional music players, focusing on customization, usability, and fast interaction.
+
+The project supports features such as shuffle playback, looping, autoplay, volume control, dark mode, and quick navigation shortcuts.
+
+---
 
 ## Features
 
-### Player
+- Custom-built audio player with play, pause, skip, and rewind controls
+- Shuffle, loop, and autoplay functionality for dynamic playback behavior
+- Interactive album/track gallery with thumbnail-based selection
+- Mini progress bar and full-track progress tracking
+- Volume control with real-time visual feedback
+- Dark mode toggle for accessibility and user preference
+- Built-in help panel with full keyboard shortcut support
+- Keyboard shortcuts for fast navigation and playback control
+- Download current track functionality
 
-The player has a display thumbnail, skip and rewind controls, and progress display. Clicking on the player thumbnail can pause and play the song. If not using the mouse, there are keyboard controls:
-<ul>
-<li>Space to pause or play </li>
-<li>"Q" to rewind 10 seconds</li>
-<li>"E" to skip 10 seconds</li>
-<li>"W" to return to the top of the page</li>
-<li>"S" for shuffle </li>
-<li>"D" for loop </li> 
-<li>"A" for auto</li>
-<li>"0-9" to skip to the corresponding percentage of the song</li>
-<li>"Z" and "X" to adjust the volume</li>
-</ul>
+---
 
-### Song Bank
+## Keyboard Shortcuts
 
-Below the player is a library of every song that is in the repo, and the thumbnails have cursor reactive behaviour. The active song itself becomes visually larger than other thumbnails, and has a slight opacity change.
+- `Q` – Rewind 10 seconds  
+- `W` – Return to top  
+- `E` – Skip 10 seconds  
+- `S` – Shuffle track  
+- `D` – Toggle loop  
+- `A` – Toggle autoplay  
+- `Z` – Volume down  
+- `X` – Volume up  
+- `Space` – Play / Pause  
+- `/` – Toggle help menu  
+- `1–9` – Jump to 10%–90% of track  
+- `C` – Toggle dark mode  
+- `Ctrl + Shift + G` – Download current track  
 
-The bank itself is built from a self updating json file. When a new song and thumbnail are pushed to Github, its data is automatically entered into the json and the bank reflects this entry.
+---
 
-### Shuffle
+## Tech Stack
 
-The shuffle button picks a random song from the bank and plays it. 
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
+- Lucide Icons
+- HTML5 Audio API
+- DOM Manipulation
 
-### Loop & Auto
+---
 
-Loop and auto behave as expected, and are off by default, with text updates for when they are on.
+## Architecture
+
+- **Player-function.js**  
+  Handles core audio logic including playback, shuffle, looping, volume control, and time navigation.
+
+- **Gallery-builder.js**  
+  Dynamically generates and manages the music gallery interface and track display system.
+
+- **HTML UI Layer**  
+  Combines player controls, gallery view, and help system into a single-page interactive interface.
+
+---
+
+## Key Implementation Details
+
+- Uses the HTML5 `<audio>` API for full control over playback state
+- Dynamic DOM updates for progress bars, thumbnails, and UI states
+- Event-driven architecture for both mouse and keyboard interactions
+- Modular separation of player logic and gallery rendering
+- Real-time UI updates for playback progress and volume changes
+- Lucide icon library loaded via CDN for lightweight UI elements
+
+---
+
+## UX / Design Goals
+
+- Fast access to music controls without navigating menus
+- Minimal latency between user input and audio response
+- Clear visual feedback for playback state and progress
+- Keyboard-first interaction design for power users
+- Clean separation between “now playing” and library browsing
+
+---
+
+## Future Improvements
+
+- Add metadata support (artist, album, duration display)
+- Improve mobile responsiveness for touch-based controls
+- Add search and filtering for large music libraries
+- Introduce playlist creation and saving
+- Replace global functions with modular JS architecture (ES modules)
+- Improve accessibility (ARIA labels + screen reader support)
+
+---
+
+## Purpose
+
+This project was built to explore:
+- Advanced DOM manipulation and event handling
+- Audio API integration in the browser
+- Interactive UI design for media applications
+- State management in vanilla JavaScript applications
+- Building a full-featured frontend without frameworks
+
+---
+
+
+## Author
+
+Christopher Wong  
