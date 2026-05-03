@@ -5,9 +5,8 @@
         <link href="Styling.css" rel="stylesheet" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://unpkg.com/lucide@latest"></script>
-        <link rel="manifest" href="/manifest.json">
+        <link rel="manifest" href="VIBEs-music-gallery/manifest.json">
     </head>
-
 
     <body>
         <div id="theme" class="light">
@@ -123,6 +122,13 @@
         <script>
             lucide.createIcons();
         </script>
+
+        <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/VIBEs-music-gallery/sw.js');
+            }
+        </script>
+
 
     </body>
 
