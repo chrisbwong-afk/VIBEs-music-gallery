@@ -41,6 +41,15 @@ function toggleAudio(id) {
 
     audio.volume = globalVolume;
 
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: songName,
+      artist: "VIBEs",
+      album: "Music Gallery",
+      artwork: [
+      { src: currentThumb?.querySelector("img")?.src || "", sizes: "512x512", type: "image/png" }
+    ]
+});
+
 
   } else {
     audio.pause();
@@ -111,12 +120,22 @@ function PickRandomAudio() {
   if (recentSongs.length > MAX_HISTORY) {
     recentSongs.shift();
   }
+
   
   const display = document.getElementById('shuffleThumb');
   const title = document.getElementById('title');
   const minititle = document.getElementById('miniTitle');
   const songName = currentAudio.id;
 
+  navigator.mediaSession.metadata = new MediaMetadata({
+    title: songName,
+    artist: "VIBEs",
+    album: "Music Gallery",
+    artwork: [
+      { src: currentThumb?.querySelector("img")?.src || "", sizes: "512x512", type: "image/png" }
+    ]
+  });
+  
   title.classList.add('fade-out');
   display.classList.add('fade-out');
   minititle.classList.add('fade-out');
