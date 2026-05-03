@@ -117,6 +117,7 @@ img {
 
 .jukebox button, #playbar button {
     width: 25%;
+    height: auto;
     padding: 10px;
     margin: 0 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -154,8 +155,8 @@ img {
     bottom: 0;
     background-color: #6894c4;
     border: 2px solid #212933;
-    width: 20%;
-    height: 6%;
+    width: auto;
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -181,7 +182,7 @@ img {
     bottom: 0;
     background-color: #6894c4;
     border: 2px solid #212933;
-    width: 65%;
+    width: 45%;
     height: 6%;
     display: flex;
     padding: 0px;
